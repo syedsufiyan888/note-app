@@ -1,0 +1,19 @@
+body{
+    padding: 0;
+    margin: 0;
+    
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+}
+#noteform{
+    margin-bottom: 1rem;
+}
+#notesContainer{
+    width: 100%;
+    
+}
