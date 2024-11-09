@@ -12,13 +12,22 @@ h1{
     background-color: lightblue;
     margin-top: 2rem;
     padding-bottom: 4rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: 1px solid black;
     border-radius: 2rem;
+    width: 70%;
 }
 #noteform{
     width: 100%;
+    display: flex;
+    
+}
+#noteform input{
+    width: 70%;
+}
+#noteform button{
+    width: 25%;
 }
 #noteform input,#noteform button{
 
