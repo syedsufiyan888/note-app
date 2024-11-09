@@ -1,19 +1,54 @@
 body{
     padding: 0;
     margin: 0;
-    
     display: flex;
     justify-content: center;
 }
-
 h1{
     text-align: center;
     font-size: 2.5rem;
 }
-#noteform{
-    margin-bottom: 1rem;
+.notes{
+    background-color: lightblue;
+    margin-top: 2rem;
+    padding-bottom: 4rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    border: 1px solid black;
+    border-radius: 2rem;
 }
-#notesContainer{
-    width: 100%;
-    
+#noteform input,#noteform button{
+    padding: 1rem;
+    border: none;
+    border-radius: 2rem;
+    border: 1px solid darkcyan;
+}
+#noteform button{
+    border: 1px solid darkcyan;
+    background-color: lightgreen;
+    font-size: 1rem;
+}
+#noteform button:hover{
+    background-color: rgb(134, 218, 134);
+}
+.note {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+
+}
+.note button {
+    border: none;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: none;
+    border-radius: 2rem;
+    border: 1px solid black;
+    font-size: 0.7rem;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(255, 98, 98);
 }

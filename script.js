@@ -14,8 +14,10 @@ function renderNotes() {
             noteElement.classList.add('note');
             noteElement.innerHTML=`
             <span class="note-content" contenteditable="false">${note}</span>
+            <div class="buttons">
             <button class="editBtn">Edit</button>
             <button class="deleteBtn">Delete</button>
+            <div>
             `;
             notesContainer.appendChild(noteElement);
 
