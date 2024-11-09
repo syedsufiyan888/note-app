@@ -1,70 +1,58 @@
-// Yo here we are declaring variables and getting elements from the html to js 
-// so that we can perform operations on the variables
+// selecting DOM elements
 const noteInput = document.getElementById('noteInput');
 const addNoteButton = document.getElementById('addNoteButton');
-const notescontainer = document.getElementById('notesContainer');
-//console.log('noteInput');
+const notesContainer = document.getElementById('notesContainer');
 
-// Load notes from localStorage
+//loading notes from localstorage
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
-renderNotes();
 
-//Function render notes
-function renderNotes(){
-    notescontainer.innerHtml = '';
-    notes.forEach((note,index) => {
+//function to render notes 
+function renderNotes() {
+    notesContainer.innerHTML= '';
+    notes.forEach((note, index)=>{
         const noteElement = document.createElement('div');
-        noteElement.classList.add('note');
-        noteElement.innerHTML = `
-        <span class="note-content" contentedtable="false">${note}</span>
-        <button class="editBtn>Edit</button>
-        <button class="deleteBtn">Delete</button>
-        `;
-        notescontainer.appendChild(noteElement);
+            noteElement.classList.add('note');
+            noteElement.innerHTML=`
+            <span class="note-content" contenteditable="false">${note}</span>
+            <button class="editBtn">Edit</button>
+            <button class="deleteBtn">Delete</button>
+            `;
+            notesContainer.appendChild(noteElement);
 
-        //Event Listener
-        noteElement.querySelector('.deleteBtn').addEventListener('click',()=>{
-            deleteNotes(index)
-        })
+            //event listener for delete button
+            noteElement.querySelector('.deleteBtn').addEventListener('click', () => {
+                deleteNote(index)
+            })
 
-        //Event Listener
-        noteElement.querySelector('.editBtn').addEventListener('click',(e)=>{
-            toggleEditMode(e,index)
-        })
-    });
+            //Event listener for edit button
+
+
+
+    })
 }
 
-addNoteButton.addEventListener('click',()=>{
-    const noteText = noteinput.vlaue.trim();
+addNoteButton.addEventListener('click', () => {
+    const noteText = noteInput.value.trim();
     if(noteText){
         notes.push(noteText);
         saveNotes();
         renderNotes();
-        noteinput.vlaue = '';
+        noteInput.value='';
     }
 })
 
-function deleteNotes(index){
+// function to delete
+function deleteNote(index){
     notes.splice(index, 1);
     saveNotes();
     renderNotes();
 }
 
-function toggleEditMode(event, index){
-    const noteElement = event.target.closest('.note');
-    const noteContent = noteElement.querySelector('.note-content');
+// function to edit
 
-    if(noteContent.contenteditable){
-        notes[index] = noteContent.textContent.trim();
-        saveNotes();
-        event.target.textContent = 'Edit';
-    }else{
-        event.target.textContent = 'Save'
-    }
 
-    noteContent.contenteditable = !noteContent.contenteditable
-}
+
 
 function saveNotes(){
-    localStorage.setItem('notes',JSON.stringify(notes));
+    localStorage.setItem('notes', JSON.stringify(notes));
 }
