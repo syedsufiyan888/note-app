@@ -33,3 +33,38 @@ function renderNotes(){
         })
     });
 }
+
+addNoteButton.addEventListener('click',()=>{
+    const noteText = noteinput.vlaue.trim();
+    if(noteText){
+        notes.push(noeText);
+        saveNotes();
+        renderNotes();
+        noteinput.vlaue = '';
+    }
+})
+
+function deleteNotes(index){
+    notes.splice(index, 1);
+    saveNotes();
+    renderNotes();
+}
+
+function toggleEditMode(event, index){
+    const noteElement = event.target.closest('.note');
+    const noteContent = noteElement.querySelector('.note-content');
+
+    if(noteContent.contenteditable){
+        notes[index] = noteContent.textContent.trim();
+        saveNotes();
+        event.target.textContent = 'Edit';
+    }else{
+        event.target.textContent = 'Save'
+    }
+
+    noteContent.contenteditable = !noteContent.contenteditable
+}
+
+function saveNotes(){
+    localStorage.setItem('notes',JSON.stringify(notes));
+}
