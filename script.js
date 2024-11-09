@@ -37,7 +37,7 @@ function renderNotes(){
 addNoteButton.addEventListener('click',()=>{
     const noteText = noteinput.vlaue.trim();
     if(noteText){
-        notes.push(noeText);
+        notes.push(noteText);
         saveNotes();
         renderNotes();
         noteinput.vlaue = '';
