@@ -17,7 +17,11 @@ h1{
     border: 1px solid black;
     border-radius: 2rem;
 }
+#noteform{
+    width: 100%;
+}
 #noteform input,#noteform button{
+
     padding: 1rem;
     border: none;
     border-radius: 2rem;
